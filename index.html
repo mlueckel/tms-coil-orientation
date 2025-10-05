@@ -39,6 +39,7 @@
 
     let coil;
     const loader = new STLLoader();
+
     loader.load('head.stl', geometry => {
       const material = new THREE.MeshPhongMaterial({ color: 0x888888, opacity: 0.85, transparent: true });
       const head = new THREE.Mesh(geometry, material);
@@ -47,6 +48,7 @@
       controls.target.copy(geometry.boundingBox.getCenter(new THREE.Vector3()));
       camera.position.z = geometry.boundingBox.max.z + 150;
     });
+
     loader.load('coil.stl', geometry => {
       coil = new THREE.Mesh(geometry, new THREE.MeshPhongMaterial({ color: 0x0033ff }));
       scene.add(coil);
